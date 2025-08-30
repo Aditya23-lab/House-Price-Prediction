@@ -28,7 +28,8 @@ A simple web application to **predict house prices** based on features like loca
 - **Other:** Jinja2 for templating, session handling in Flask  
 
 ---
-![App Screenshot]("C:\Users\sandi\Downloads\Screenshot_30-8-2025_10272_localhost.jpeg")
+![App Screenshot](screenshots/ui.png)
+
 
 ## 🔹 Installation
 
