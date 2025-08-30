@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Price Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f5f7fa;
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      margin-top: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      border-radius: 30px;
+      padding: 10px 20px;
+    }
+    .btn-custom:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h2 class="text-center mb-4">🏡 House Price Predictor</h2>
+          <form method="POST" action="/predict">
+            
+            <div class="mb-3">
+              <label class="form-label">Longitude</label>
+              <input type="text" class="form-control" name="longitude" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Latitude</label>
+              <input type="text" class="form-control" name="latitude" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Housing Median Age</label>
+              <input type="text" class="form-control" name="housing_median_age" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Total Rooms</label>
+              <input type="text" class="form-control" name="total_rooms" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Total Bedrooms</label>
+              <input type="text" class="form-control" name="total_bedrooms" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Population</label>
+              <input type="text" class="form-control" name="population" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Households</label>
+              <input type="text" class="form-control" name="households" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Median Income</label>
+              <input type="text" class="form-control" name="median_income" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Ocean Proximity</label>
+              <select class="form-select" name="ocean_proximity" required>
+                <option value="NEAR BAY">NEAR BAY</option>
+                <option value="INLAND">INLAND</option>
+                <option value="NEAR OCEAN">NEAR OCEAN</option>
+                <option value="ISLAND">ISLAND</option>
+                <option value="1H OCEAN">1H OCEAN</option>
+              </select>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-custom">Predict Price</button>
+            </div>
+          </form>
+
+          {% if prediction_text %}
+            <div class="alert alert-success text-center mt-4">
+              <h4>{{ prediction_text }}</h4>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
